@@ -10,11 +10,6 @@ export const errorHandler = (error: Error, req: Request, res: Response, next: Ne
     }
 
     res.status(500).send({
-        'error_code': 'INTERNAL_SERVER_ERROR',
-        'error_message': error.message,
-    })
-
-    res.status(500).send({
         error_code: 'INTERNAL_SERVER_ERROR',
         error_message: 'An unexpected error occurred',
     });
