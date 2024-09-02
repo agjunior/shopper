@@ -4,14 +4,14 @@ import {  envs } from '../envs';
 
 const genAI = new GoogleGenerativeAI(envs.GEMINI_API_KEY);
 
-export const getMeasureContent = async (image: string): Promise<string> => {
+export const getMeasureContent = async (image: string, mimeType: string): Promise<string> => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     try {
         const result = await model.generateContent([
             {
                 inlineData: {
-                    mimeType: 'image/png',
+                    mimeType: mimeType,
                     data: image,
                 },
             },
