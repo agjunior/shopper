@@ -19,4 +19,4 @@ Os endpoints de API estarão disponíveis em http://localhost.
 
 ## 🔗 Demo
 
-Uma demo do projeto está disponível em https://shopper.agnaldocarvalho.dev.
+Uma demo do projeto está disponível em https://shopper.agnaldocarvalho.app.
