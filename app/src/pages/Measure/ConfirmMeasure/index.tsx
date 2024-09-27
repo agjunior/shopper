@@ -14,7 +14,7 @@ const ListMeasure = () => {
   const { confirmMeasure } = useMeasure();
   const { state } = useLocation();
 
-  const [inputValue, setInputValue] = useState(state?.value || '');
+  const [inputValue, setInputValue] = useState(state?.confirmed_value || '');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -67,7 +67,7 @@ const ListMeasure = () => {
         <S.Input
           type="number"
           placeholder="Digite o valor"
-          value={state.value}
+          value={inputValue}
           onChange={handleInputChange}
         />
       </S.Content>

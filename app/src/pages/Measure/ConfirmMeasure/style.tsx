@@ -17,6 +17,6 @@ export const Input = styled.input`
 `;
 
 export const Image = styled.img`
-    widht: 100%;
+    width: 100%;
     border-radius: 15px;
 `;
