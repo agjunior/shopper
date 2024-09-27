@@ -23,7 +23,7 @@ const UploadRequestSchema = z.object({
 
 const UploadResponseSchema = z.object({
     uuid: z.string().uuid(),
-    value: z.number(),
+    value: z.number().nullable(),
 }).transform((data) => ({
     measure_uuid: data.uuid,
     confirmed_value: data.value,

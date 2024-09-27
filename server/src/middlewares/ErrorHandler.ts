@@ -9,6 +9,8 @@ export const errorHandler = (error: Error, req: Request, res: Response, next: Ne
         });
     }
 
+    console.log(error);
+
     res.status(500).send({
         error_code: 'INTERNAL_SERVER_ERROR',
         error_message: 'An unexpected error occurred',

@@ -19,6 +19,6 @@ model Measure {
   customer_code   String
   datetime        DateTime  @default(now())
   type            String
-  value           Int
+  value           Int?
   confirmed       Boolean   @default(false)
 }

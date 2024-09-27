@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import cors from "cors";
 import { errorHandler } from "./middlewares/ErrorHandler";
 import MeasureRouter from "./routes/MeasureRouter";
 
@@ -9,6 +10,7 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(bodyParser.json({ limit: '20mb' }));
 
 app.get('/health', (_, res: Response) => res.send());
