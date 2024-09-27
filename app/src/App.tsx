@@ -2,7 +2,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import './App.css'
 import Home from './pages/Home'
 import UploadMeasure from './pages/Measure/UploadMeasure'
 import ListMeasure from './pages/Measure/ListMeasure'

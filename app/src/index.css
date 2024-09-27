@@ -43,3 +43,11 @@ html {
 *:focus {
   outline: none;
 }
+
+#root {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+
+  --primary-color: #2a99d6;
+}
