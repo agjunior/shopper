@@ -1,9 +1,9 @@
 FROM node:20
 WORKDIR /server
 
-COPY package.json package-lock.json ./
+COPY server/package.json server/package-lock.json ./
 RUN npm install
-COPY . .
+COPY server ./
 RUN npx prisma migrate dev --name init
 
 EXPOSE 3000
