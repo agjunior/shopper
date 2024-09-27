@@ -2,7 +2,7 @@ FROM node:20 AS build
 WORKDIR /app
 COPY app/package.json app/package-lock.json ./
 RUN npm install
-COPY ap .
+COPY app .
 RUN npm run build
 
 FROM nginx:alpine
