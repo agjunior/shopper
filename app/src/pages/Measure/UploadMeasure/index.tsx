@@ -1,13 +1,14 @@
 import { useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import imageGas from "../../assets/image-gas.png";
-import imageWater from "../../assets/image-water.png";
-import Button from "../../components/Button";
-import { useMeasure } from "../../hooks/useMeasure";
-import { useCustomer } from "../../contexts/CustomerContext";
-import Container from "../../components/Container";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import imageGas from "../../../assets/image-gas.png";
+import imageWater from "../../../assets/image-water.png";
+import Button from "../../../components/Button";
+import { useMeasure } from "../../../hooks/useMeasure";
+import { useCustomer } from "../../../contexts/CustomerContext";
+import Container from "../../../components/Container";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import * as S from "./style";
 
 const UploadMeasure = () => {
   const navigate = useNavigate();
@@ -70,10 +71,10 @@ const UploadMeasure = () => {
   if (isUploading) {
     return (
       <Container align="center">
-        <div style={{ textAlign: 'center', padding: '0 20px' }}>
+        <S.Content>
           <h2>Enviando a foto...</h2>
           <p>Por favor, aguarde enquanto enviamos a foto do seu medidor.</p>
-        </div>
+        </S.Content>
       </Container>
     );
   }
@@ -99,17 +100,17 @@ const UploadMeasure = () => {
           )
         }
       >
-        <div style={{ textAlign: 'center', padding: '0 20px' }}>
+        <S.Content>
           {isImageCaptured ? (
             <img src={capturedImage!} alt="Captured" width="100%" style={{ borderRadius: '15px' }}/>
           ) : (
             <>
-              <video ref={videoRef} style={{ width: '100%', borderRadius: '15px' }} />
-              <canvas ref={canvasRef} style={{ display: 'none' }} />
+              <S.Video ref={videoRef} />
+              <S.Canvas ref={canvasRef} />
             </>
           )}
           <p>Certifique que os números estão bem nítidos na imagem</p>
-        </div>
+        </S.Content>
       </Container>
     );
   }
@@ -124,13 +125,13 @@ const UploadMeasure = () => {
         </Footer>
       }
     >
-      <div style={{ textAlign: 'center', padding: '0 20px' }}>
+      <S.Content>
         <h2>Envie a foto do seu medidor</h2>
         <p>Tire uma foto dos números do seu medidor como no exemplo abaixo:</p>
-        <img src={image} alt="Example" width="100%" style={{ borderRadius: '15px', maxHeight: '150px', width: 'auto' }} />
+        <S.Image src={image} alt="Example" />
         <p>Precisaremos de acesso a sua câmera.</p>
         <p>Na próxima tela, por favor confirme a solicitação.</p>
-      </div>
+      </S.Content>
     </Container>
   );
   

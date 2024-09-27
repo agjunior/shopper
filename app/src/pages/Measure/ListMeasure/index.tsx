@@ -1,72 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useCustomer } from "../../contexts/CustomerContext";
-import { useLoading } from "../../contexts/LoadingContext";
-import { useMeasure } from "../../hooks/useMeasure";
-import ButtonGroup from "../../components/ButtonGroup";
-import Header from "../../components/Header";
-import Container from "../../components/Container";
-import styled from "styled-components";
-import { FaFire, FaCircleNotch } from 'react-icons/fa';
+import { useCustomer } from "../../../contexts/CustomerContext";
+import { useLoading } from "../../../contexts/LoadingContext";
+import { useMeasure } from "../../../hooks/useMeasure";
+import ButtonGroup from "../../../components/ButtonGroup";
+import Header from "../../../components/Header";
+import Container from "../../../components/Container";
+import { FaFire } from 'react-icons/fa';
 import { FaDroplet } from "react-icons/fa6";
-
-const StyledItem = styled.div`
-  background-color: #f8f9fa;
-  border-radius: 15px;
-  padding: 20px 20px;
-  width: 100%;
-  display: flex;
-  gap: 15px;
-  margin-bottom: 10px;
-`;
-
-const StyledColumn = styled.div``;
-
-const StyledSection = styled.h4`
-  margin: 15px 10px 5px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #6c757d;
-`;
-
-const StyledTitle = styled.h3`
-  margin: 0;
-  font-size: 16px;
-`;
-
-const StyledIcon = styled.div`
-  font-size: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-`;
-
-const StyledValue = styled.p`
-  margin: 0;
-  font-size: 14px
-`;
-
-const StyledInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-`;
-
-const LoadingIcon = styled(FaCircleNotch)`
-  font-size: 50px;
-  margin-bottom: 20px;
-  animation: spin 2s linear infinite;
-  color: var(--primary-color);
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
+import * as S from "./style";
 
 const ListMeasure = () => {
   const { isLoading } = useLoading();
@@ -145,36 +86,36 @@ const ListMeasure = () => {
         onSelect={handleSelectType}
       />
       {isLoading ? (
-      <StyledInfo>
-          <LoadingIcon />
-      </StyledInfo>
+      <S.Info>
+          <S.LoadingIcon />
+      </S.Info>
       ) : (
       <>
         <div style={{ width: '100%', height: '100%' }}>
         {Object.keys(groupedMeasures).length > 0 ? (
           Object.keys(groupedMeasures).map(monthYear => (
           <div key={monthYear}>
-            <StyledSection>{monthYear}</StyledSection>
+            <S.Section>{monthYear}</S.Section>
             {groupedMeasures[monthYear].map((measure: any) => {
               const itemType = measureTypeItem[measure.measure_type as MeasureType];
               return (
-                <StyledItem key={measure.measure_uuid} style={{ background: itemType.backgroundColor }}>
-                  <StyledColumn>
-                    <StyledIcon style={{ color: itemType.color }}>{itemType.icon}</StyledIcon>
-                  </StyledColumn>
-                  <StyledColumn>
-                    <StyledTitle>{itemType.title || measure.measure_type}</StyledTitle>
-                    <StyledValue><b>{measure.measure_value}</b> em {new Date(measure.measure_datetime).toLocaleDateString('pt-BR')}</StyledValue>
-                  </StyledColumn>
-                </StyledItem>
+                <S.Item key={measure.measure_uuid} style={{ background: itemType.backgroundColor }}>
+                  <S.Column>
+                    <S.Icon style={{ color: itemType.color }}>{itemType.icon}</S.Icon>
+                  </S.Column>
+                  <S.Column>
+                    <S.Title>{itemType.title || measure.measure_type}</S.Title>
+                    <S.Value><b>{measure.measure_value}</b> em {new Date(measure.measure_datetime).toLocaleDateString('pt-BR')}</S.Value>
+                  </S.Column>
+                </S.Item>
               )
             })}
           </div>
           ))
         ) : (
-        <StyledInfo>
+        <S.Info>
           <p>Nenhuma leitura realizada.</p>
-        </StyledInfo>
+        </S.Info>
         )}
         </div>
       </>
