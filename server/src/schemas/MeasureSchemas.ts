@@ -27,7 +27,7 @@ const UploadResponseSchema = z.object({
 }).transform((data) => ({
     measure_uuid: data.uuid,
     confirmed_value: data.value,
-    image_url: `${envs.APP_URL}/${data.uuid}/image`,
+    image_url: `${envs.API_URL}/${data.uuid}/image`,
 }));
 
 const ConfirmRequestSchema = z.object({

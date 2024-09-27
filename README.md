@@ -5,6 +5,7 @@
 
 - Node.js 20.x
 - Typescript
+- React.js
 - Docker
 - Express
 - Prisma
@@ -15,7 +16,11 @@
 
 Usando o docker, rode o comando ``docker compose up``.
 
-Os endpoints de API estarão disponíveis em http://localhost.
+A aplicação estará disponível em http://localhost.
+
+Os endpoints de API estarão disponíveis em http://localhost:3000.
+
+Devido a natureza do teste, o app fo pensando para ser utilizado em celulares, apesar de ser acessível também em desktops.
 
 ## 🔗 Demo
 

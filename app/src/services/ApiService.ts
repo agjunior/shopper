@@ -1,9 +1,7 @@
-// import { API_URL } from '../constants/envs';
-
-const API_URL = 'https://upgraded-yodel-q445999p7q26wwr-3000.app.github.dev/';
+import { envs } from '../envs';
 
 export class ApiService {
-    private static baseUrl = API_URL;
+    private static baseUrl = envs.API_URL;
     private static contentType = 'application/json';
 
     private static async request(url: string, method: string, data?: object) {
