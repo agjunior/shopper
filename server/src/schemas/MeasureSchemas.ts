@@ -50,6 +50,7 @@ const MeasuresResponseSchema = z.array(
         datetime: z.date(),
         customer_code: z.string(),
         type: z.string().refine(validateMeasureType),
+        value: z.number().nullable(),
         confirmed: z.boolean(),
     })
 ).transform((data) => ({
@@ -58,6 +59,7 @@ const MeasuresResponseSchema = z.array(
         measure_uuid: measure.uuid,
         measure_datetime: measure.datetime,
         measure_type: measure.type,
+        measure_value: measure.value,
         has_confirmed: measure.confirmed,
         image_url: `${envs.APP_URL}/${measure.uuid}/image`,
     })),

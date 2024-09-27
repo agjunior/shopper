@@ -16,6 +16,7 @@ const StyledItem = styled.div`
   width: 100%;
   display: flex;
   gap: 15px;
+  margin-bottom: 10px;
 `;
 
 const StyledColumn = styled.div``;
@@ -163,7 +164,7 @@ const ListMeasure = () => {
                   </StyledColumn>
                   <StyledColumn>
                     <StyledTitle>{itemType.title || measure.measure_type}</StyledTitle>
-                    <StyledValue><b>{measure.value || 123456}</b> em {new Date(measure.measure_datetime).toLocaleDateString('pt-BR')}</StyledValue>
+                    <StyledValue><b>{measure.measure_value}</b> em {new Date(measure.measure_datetime).toLocaleDateString('pt-BR')}</StyledValue>
                   </StyledColumn>
                 </StyledItem>
               )

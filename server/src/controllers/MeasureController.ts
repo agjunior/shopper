@@ -43,6 +43,7 @@ export const uploadImage = async (req: Request, res: Response, next: NextFunctio
     const existingMeasure = await prisma.measure.findFirst({
       where: {
         customer_code: parsedData.customer_code,
+        type: parsedData.type,
         datetime: {
           gte: new Date(parsedData.datetime.getFullYear(), parsedData.datetime.getMonth(), 1),
           lt: new Date(parsedData.datetime.getFullYear(), parsedData.datetime.getMonth() + 1, 1),
