@@ -1,12 +1,10 @@
 services:
   server:
     build:
-      context: ./server
+      context: ./
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
 
   react-app:
     build:
@@ -14,5 +12,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    environment:
-      - NODE_ENV=production
